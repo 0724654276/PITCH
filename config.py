@@ -15,8 +15,11 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    pass
+   
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
+class TestConfig(Config):
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://geroge:kamakia91@localhost/pitchh_test'
 
 
 class DevConfig(Config):
@@ -26,6 +29,7 @@ class DevConfig(Config):
         Config: The parent configuration class with General configuration settings
     '''
     # connecting to database
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://geroge:kamakia91@localhost/pitchh'
 
     DEBUG = True
 
@@ -38,7 +42,10 @@ class DevConfig(Config):
     SUBJECT_PREFIX = 'Pitchh'
     SENDER_EMAIL = 'george.macharia@student.moringaschool.com'
 
-  # editor
+class Config:
+    # simple mde  configurations
+    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_USE_CDN = True
 
 
   
@@ -46,4 +53,5 @@ class DevConfig(Config):
 config_options = {
 'development':DevConfig,
 'production':ProdConfig,
+'test':TestConfig
 }
