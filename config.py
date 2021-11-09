@@ -4,7 +4,9 @@ class Config:
 
     SECRET_KEY='SECRET_KEY'
     SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://geroge:kamakia91@localhost/pitchh'
+    
     UPLOADED_PHOTOS_DEST ='app/static/photos'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
    
   
