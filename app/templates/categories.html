@@ -6,9 +6,6 @@
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
   integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous">
-</script> -->
 {% endblock %}
 
 <br>
@@ -16,11 +13,6 @@
 <br>
 <br>
 
-<!-- <script>
-  $(document).ready(function(){
-    alert("You");
-  });
-</script> -->
 
 <body>
   {% block content %}
@@ -33,10 +25,7 @@
     <br>
     <div class="card-columns">
       {% for category in category[::-1] %}
-      <!-- [parameters: {'category_1': 'Interview'}] -->
-      <!-- WHERE pitches.category = %(category_1)s]
-[parameters: {'category_1': 'Interview'}] -->
-
+  
       <div class="card bg-transparent border-success">
         <div class="card-header bg-transparent border-success">
           {{category.title}}
