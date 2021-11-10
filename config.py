@@ -8,6 +8,11 @@ class Config:
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    
+    # simple mde  configurations
+    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_USE_CDN = True
+
    
   
 
@@ -18,7 +23,9 @@ class ProdConfig(Config):
         Config: The parent configuration class with General configuration settings
     '''
    
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL","")
+    if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+        SQLALCHEMY_DATABASE_URI =SQLALCHEMY_DATABASE_URI.replace("postgres://","postgresql://",1)
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://geroge:kamakia91@localhost/pitchh_test'
@@ -44,16 +51,10 @@ class DevConfig(Config):
     SUBJECT_PREFIX = 'Pitchh'
     SENDER_EMAIL = 'george.macharia@student.moringaschool.com'
 
-class Config:
-    # simple mde  configurations
-    SIMPLEMDE_JS_IIFE = True
-    SIMPLEMDE_USE_CDN = True
-
-
   
 
 config_options = {
 'development':DevConfig,
 'production':ProdConfig,
-'test':TestConfig
+'test':TestConfig,
 }
